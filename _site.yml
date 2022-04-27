@@ -11,4 +11,6 @@ navbar:
       href: project_proposal.html
     - text: "Project"
       href: project.html
+    - text: "DANL 310 Homework"
+      href: danl_310_homework.html
       
