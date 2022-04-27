@@ -11,5 +11,5 @@ title: "About Me"
 
 Here is super cool photo.
 
-![](/Users/nicholasmeyer/Documents/IMG_9739.png){width=50%}
+![](IMG_9739.png){width=50%}
 
