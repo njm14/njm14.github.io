@@ -3,3 +3,5 @@ title: "Nicholas Meyer's Website"
 ---
 
 Hello, World!
+
+![](200.gif){width=50%}
