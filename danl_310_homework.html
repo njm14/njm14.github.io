@@ -273,7 +273,113 @@ $(document).ready(function () {
 </div>
 
 
+<p>Question 1:</p>
+<pre class="r"><code>library(tidyverse)
+library(dplyr)
+library(gganimate)
+library(gifski)
+imf_growth &lt;- read_csv(url(&#39;https://bcdanl.github.io/data/imf_growth_quarterly.csv&#39;))
+## New names:
+## * `` -&gt; ...1
+## Rows: 473 Columns: 16── Column specification ─────────────────────────────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (3): quarter, country, qt
+## dbl (13): ...1, date, gdp, capital, labor_force, y, k, sk, gy, gk, gn, ga, year
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
+imf_growth &lt;- imf_growth %&gt;% 
+  mutate(gy = round(gy, digits = 3))
+
+p &lt;- ggplot(imf_growth, aes(x= country, y= gy, fill= country))+
+geom_col()+ geom_text(aes(label=as.character(gy), hjust = -0.2))+ coord_flip()
+fig_GDP &lt;- p + transition_states(quarter, transition_length = 1, state_length =1) +
+  labs(title = &quot;Growth Rate of GDP per Worker: {closest_state}&quot;, x = &quot;&quot;, y= &quot;&quot;)+
+  theme_minimal()+ theme(legend.position = &quot;none&quot;)
+
+# animate(fig_GDP, renderer = gifski_renderer(&quot;chewy_hw4_q1.gif&quot;))
+knitr::include_graphics(&quot;chewy_hw4_q1.gif&quot;)</code></pre>
+<p><img src="chewy_hw4_q1.gif" /><!-- --></p>
+<p>Question 2:</p>
+<pre class="r"><code>library(tidyverse)
+library(dplyr)
+library(ggiraph)
+library(socviz)
+library(ggthemes)
+library(plotly)
+climate_opinion_long &lt;- read_csv(
+  &#39;https://bcdanl.github.io/data/climate_opinion_2021.csv&#39;)</code></pre>
+<pre><code>## Rows: 6284 Columns: 4── Column specification ─────────────────────────────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (2): GeoName, belief
+## dbl (2): id, perc
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre class="r"><code>county_map &lt;- county_map
+county_map$id &lt;- as.integer(county_map$id)
+county_full &lt;- left_join(county_map, climate_opinion_long)</code></pre>
+<pre><code>## Joining, by = &quot;id&quot;</code></pre>
+<pre class="r"><code>na_map &lt;- function(yr){
+  county_full_na &lt;- filter(county_full, is.na(belief)) %&gt;% 
+    select(-belief) %&gt;% 
+    mutate( belief = yr)
+}
+
+for (val in  levels( factor(county_full$belief) )  ){
+  county_full &lt;- rbind(county_full, na_map(val))
+}
+
+county_full &lt;- county_full %&gt;% 
+  mutate(belief_desc = ifelse(belief == &quot;happening&quot;,
+                              &quot;Global warming is happening.&quot;,
+                              &quot;Global warming is mostly caused by human activities.&quot;))
+
+county_full_1&lt;- county_full %&gt;% 
+  filter(belief == &quot;human&quot;)
+
+
+library(ggiraph)
+x1 &lt;- ggplot(data = county_full_1) + 
+  geom_polygon_interactive(mapping = aes(x = long, y = lat, 
+                             group = group, fill = perc, tooltip = GeoName, data_id = perc ),
+               color = &quot;grey60&quot;, size = 0.1) 
+
+
+x2 &lt;- x1 + scale_fill_gradient2( 
+  low = &#39;#2E74C0&#39;,  
+  high = &#39;#CB454A&#39;,  
+  mid = &#39;white&#39;, # transparent white
+  na.value = &quot;grey80&quot;,
+  midpoint = 50,
+  breaks = c(quantile(county_full$perc, 0, na.rm = T),
+             quantile(county_full$perc, .25, na.rm = T),
+             quantile(county_full$perc, .5, na.rm = T),
+             quantile(county_full$perc, .75, na.rm = T),
+             quantile(county_full$perc, 1, na.rm = T)),
+  labels = c(paste(round(quantile(county_full$perc, 0, na.rm = T), 1),&quot;(Min)&quot;),
+             paste(round(quantile(county_full$perc, .25, na.rm = T), 1),&quot;(25th)&quot;),
+             paste(round(quantile(county_full$perc, .5, na.rm = T), 1),&quot;(50th)&quot;),
+             paste(round(quantile(county_full$perc, .75, na.rm = T), 1),&quot;(75th)&quot;),
+             paste(round(quantile(county_full$perc, 1, na.rm = T), 1),&quot;(Max)&quot;)
+  ),
+  guide = guide_colorbar( direction = &quot;horizontal&quot;,
+                          barwidth = 25,
+                          title.vjust = 1 )
+) 
+
+x &lt;- x2 + labs(fill = &quot;Percent Belief&quot;, title = &quot;U.S. Climate Opinion, 2021: Global warming is mostly caused by human activities.&quot;,
+               caption = &quot;Sources: Yale Program on Climate Change Communication\n(https://climatecommunication.yale.edu/visualizations-data/ycom-us/)&quot;) +
+  theme_map() + 
+  theme(plot.margin = unit( c(1, 1, 3.85, 0.5), &quot;cm&quot;),
+        legend.position = c(.5, -.3),
+        legend.justification = c(.5,.5),
+        strip.background = element_rect( colour = &quot;black&quot;,
+                                         fill = &quot;white&quot;,
+                                         color = &quot;grey80&quot; ))+
+  guides(fill = guide_colourbar(direction = &quot;horizontal&quot;, barwidth = 25, title.vjust = -1))
+
+x</code></pre>
+<p><img src="danl_310_homework_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 
 
 
