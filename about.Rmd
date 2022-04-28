@@ -4,7 +4,7 @@ title: "About Me"
 
 - Name: Nicholas Meyer
 - Occupation: "Student", Senior at SUNY Geneseo pursuing a business administration major with minors in finance and data analytics
-- Hobbies: Fishing, Learning data analytics and finance
+- Hobbies: Lacrosse, Fishing, Learning data analytics and finance
 - Emails: nmeyer5691@aol.com,
           njm14@geneseo.edu
 - Linkden: https://www.linkedin.com/in/nicholas-meyer-9b3475173/
