@@ -1,0 +1,13 @@
+type,exclude,date,date_end,what,what_translation,institution,department,where,additional_info,additional_info2,url,slides,video,short_cv,order,academic,professional_2_page,website,one_column_paged,brief_no_pubs,humanities,humanities_description
+education,NA,2018-08-27,2022-05-21,"B.S. in Business Administration, Minors in Finanace and Data Analytics",NA,NA,NA,"School of Business, SUNY Geneseo",NA,NA,NA,NA,NA,y,NA,NA,NA,NA,NA,NA,NA,NA
+prof-act,NA,2022-01-28,present,Participating in a directed study for my data analytics minor,NA,SUNY Geneseo,Data Analytics,"School of Business, SUNY Geneseo",Work on the study with assistance from Professor Choe ,The focus of the study is to determine student debt and the earnings after they graduate college,NA,NA,NA,y,NA,NA,NA,NA,NA,NA,NA,NA
+work,NA,2021-06-01,2021-07-28,Capital Markets Intern,NA,Mirae Asset Securities,NA,"New York, NY","Analyze accounting and operational reports of Stock Loans, Equity Execution, Repo, Research, and Operations ",Use Excel to calculate weighted average rates for Repo transactions ,NA,NA,NA,NA,NA,NA,y,NA,NA,y,NA,NA
+work,NA,2020-04-01,2021-02-01,Senior Personal Shopper Associate ,NA,Walmart,NA,"Commack, NY",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+work,NA,2019-05-28,2019-08-20,Logistics,NA,My Lacrosse Tournaments,NA,"Long Island, NY",Handle logistics for tournaments,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+technical,NA,NA,NA,Bloomberg Market Concepts,NA,NA,NA,NA,Bloomberg Certified ,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+technical,NA,NA,NA,"Profficent in Microsoft Excel, Powerpoint, and Word",NA,NA,NA,NA,NA,NA,NA,NA,NA,y,NA,NA,NA,NA,NA,NA,NA,NA
+technical,NA,NA,NA,"Programming, data analysis and visualisation",NA,NA,NA,NA,"in R (tidyverse), Python and SQL","dplyr, ggplot2, shiny, machine learning, supervised and unsupervised clustering",NA,NA,NA,y,NA,NA,NA,NA,NA,NA,NA,NA
+technical,NA,NA,NA,Reproducible research,NA,NA,NA,NA,with R Markdown  + LaTeX + HTML,NA,NA,NA,NA,y,NA,NA,NA,NA,NA,NA,NA,NA
+technical,NA,NA,NA,Web development,NA,NA,NA,NA,"(HTML, CSS, JavaScript, GitHub Pages)",NA,NA,NA,NA,y,NA,NA,NA,NA,NA,NA,NA,NA
+volunteering,NA,2018-09-01,present,Geneseo Student Investment Fund,NA,NA,NA,SUNY Geneseo,"Engage in macro, fundemantal and technical analysis of equities",NA,NA,NA,NA,NA,2,NA,y,NA,NA,NA,NA,NA
+volunteering,NA,2018-08-31,present,Geneseo Men's Varsity Lacrosse,NA,NA,NA,SUNY Geneseo,Help volunteer coach the Geneseo varsity men's lacrosse team ,NA,NA,NA,NA,NA,1,NA,y,NA,NA,NA,NA,NA
