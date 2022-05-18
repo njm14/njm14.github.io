@@ -260,7 +260,7 @@ $(document).ready(function () {
   <a href="danl_310_homework.html">DANL 310 Homework</a>
 </li>
 <li>
-  <a href="shiny_homework">Shiny Homework</a>
+  <a href="https://nicholasmeyer.shinyapps.io/shiny_app/">Shiny Homework</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -281,9 +281,20 @@ $(document).ready(function () {
 
 <p>Question 1:</p>
 <pre class="r"><code>library(tidyverse)
+## Warning: replacing previous import &#39;lifecycle::last_warnings&#39; by &#39;rlang::last_warnings&#39; when loading
+## &#39;hms&#39;
+## ── Attaching packages ──────────────────────────────────────────────────────────────── tidyverse 1.3.1 ──
+## ✔ ggplot2 3.3.5     ✔ purrr   0.3.4
+## ✔ tibble  3.1.4     ✔ dplyr   1.0.7
+## ✔ tidyr   1.1.3     ✔ stringr 1.4.0
+## ✔ readr   2.0.1     ✔ forcats 0.5.1
+## ── Conflicts ─────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
 library(dplyr)
 library(gganimate)
 library(gifski)
+## Warning: package &#39;gifski&#39; was built under R version 4.1.2
 imf_growth &lt;- read_csv(url(&#39;https://bcdanl.github.io/data/imf_growth_quarterly.csv&#39;))
 ## New names:
 ## * `` -&gt; ...1
@@ -311,14 +322,26 @@ knitr::include_graphics(&quot;chewy_hw4_q1.gif&quot;)</code></pre>
 <p>Question 2:</p>
 <pre class="r"><code>library(tidyverse)
 library(dplyr)
-library(ggiraph)
-library(socviz)
+library(ggiraph)</code></pre>
+<pre><code>## Warning: package &#39;ggiraph&#39; was built under R version 4.1.2</code></pre>
+<pre class="r"><code>library(socviz)
 library(ggthemes)
-library(plotly)
-climate_opinion_long &lt;- read_csv(
+library(plotly)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;plotly&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     last_plot</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     layout</code></pre>
+<pre class="r"><code>climate_opinion_long &lt;- read_csv(
   &#39;https://bcdanl.github.io/data/climate_opinion_2021.csv&#39;)</code></pre>
-<pre><code>## Rows: 6284 Columns: 4
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────────
+<pre><code>## Rows: 6284 Columns: 4</code></pre>
+<pre><code>## ── Column specification ─────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (2): GeoName, belief
 ## dbl (2): id, perc

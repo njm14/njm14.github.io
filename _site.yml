@@ -16,4 +16,4 @@ navbar:
     - text: "DANL 310 Homework"
       href: danl_310_homework.html
     - text: "Shiny Homework"
-      href: shiny_homework 
+      href: https://nicholasmeyer.shinyapps.io/shiny_app/
