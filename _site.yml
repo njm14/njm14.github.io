@@ -15,4 +15,5 @@ navbar:
       href: project.html
     - text: "DANL 310 Homework"
       href: danl_310_homework.html
-      
+    - text: "Shiny Homework"
+      href: shiny_homework 
