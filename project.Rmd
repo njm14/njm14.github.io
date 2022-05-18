@@ -3,5 +3,5 @@ title: "Project"
 output: html_document
 ---
 
-[BH310 FINAL REPORT.pdf](www.rstudio.com)
+[Project Final Report](BH310 FINAL REPORT.pdf)
 
